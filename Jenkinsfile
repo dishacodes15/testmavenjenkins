@@ -4,22 +4,22 @@ pipeline{
           maven 'maven'
          }
          stages{
-            stage('Checkout')
+            stage('Checkout'){
               steps{
                     git branch :'main', url:'https://github.com/dishacodes15/testmavenjenkins.git'
                   }
                  }
-            stage('Build')
+            stage('Build'){
               steps{
                     sh 'mvn clean package'
                   }
                  }
-            stage('Test')
+            stage('Test'){
               steps{
                     sh 'mvn test'
                   }
                  }
-            stage('Run Application')
+            stage('Run Application'){
               steps{
                     sh 'java -jar target/mavenApp-1.0-SNAPSHOT.jar'
                   }
